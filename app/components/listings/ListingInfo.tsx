@@ -102,8 +102,10 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
       <hr />
       <Map center={coordinates} />
 
+     
 
-      <div 
+
+      {/* <div 
           className="
             text-xl 
             font-semibold 
@@ -148,7 +150,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
 
       </div>
 
-</div>
+</div> */}
+
+
     </div>
    );
 }

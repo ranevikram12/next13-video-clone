@@ -9,7 +9,7 @@ import {
 } from 'react-hook-form';
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/navigation';
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 import useRentModal from '@/app/hooks/useRentModal';
 
@@ -19,11 +19,12 @@ import CategoryInput from '../inputs/CategoryInput';
 import CountrySelect from "../inputs/CountrySelect";
 import { categories } from '../navbar/Categories';
 import ImageUpload from '../inputs/ImageUpload';
+import ImageUploadMulti from '../inputs/ImageUploadMulti';
 import Input from '../inputs/Input';
 import Heading from '../Heading';
 
 
-import citiesJ  from 'cities.json';
+
 
 enum STEPS {
   CATEGORY = 0,
@@ -45,7 +46,7 @@ const RentModal = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
 
 
-  console.log(citiesJ)
+  //console.log(citiesJ)
 
   const { 
     register, 
@@ -64,6 +65,7 @@ const RentModal = () => {
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
+      imageArray: [],
 
       imageID: '',
       imageLicense: '',
@@ -81,8 +83,13 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount');
   const imageSrc = watch('imageSrc');
 
+  const imageArray: string[] = watch('imageArray');
+
   const imageID = watch('imageID');
   const imageLicense = watch('imageLicense');
+
+ 
+
 
 
 
@@ -182,7 +189,7 @@ const RentModal = () => {
       <div className="flex flex-col gap-8">
         <Heading
           title="Where is your place located?"
-          subtitle="Help guests find you!"
+          subtitle="Help guests find you!!!"
         />
         <CountrySelect 
           value={location} 
@@ -231,9 +238,11 @@ const RentModal = () => {
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
         />
-        <ImageUpload
-          onChange={(value) => setCustomValue('imageSrc', value)}
-          value={imageSrc}
+        <ImageUploadMulti
+          //onChange={(value) => setCustomValue('imageSrc', value)}
+          onChange={(value) => setCustomValue('imageArray', value)}
+          
+          value={imageArray}
         />
       </div>
     )

@@ -50,6 +50,7 @@ model Listing {
   title String
   description String
   imageSrc String
+  imageArray String[]
   imageID String
   imageLicense String
   createdAt DateTime @default(now())

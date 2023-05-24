@@ -118,10 +118,12 @@ const ListingClient: React.FC<ListingClientProps> = ({
           mx-auto
         "
       >
+      
         <div className="flex flex-col gap-6">
           <ListingHead
             title={listing.title}
             imageSrc={listing.imageSrc}
+            imageArray={listing.imageArray}
             locationValue={listing.locationValue}
             id={listing.id}
             currentUser={currentUser}

@@ -1,11 +1,14 @@
-import countries from 'worldcities';
+//import countries from 'worldcities';
 
 
 import cities from 'all-the-cities';
 
-import citiesJ  from 'cities.json';
+//import citiesJ  from 'cities.json';
 
-countries.City
+//import {CITY_LIST} from '../constant/cities_list' 
+
+
+//countries.City
 
 // countries.getAllByName
 
@@ -19,13 +22,28 @@ export interface Item {
 }
 
 
+//citiesJ 
+
+//CITY_LIST.map
+
 //const j = <Item[]> JSON.parse(citiesJ.toString())
- const getAll = countries.getAllByName
+ //const getAll = countries.getAllByName
 
  //const carray[] = citiesJ; 
 
 //console.log(citiesJ)
- 
+
+
+//  const formattedCities = CITY_LIST.map((country) => ({
+//   value: country.name,
+//   label: country.name,
+//   flag: country.country,
+//   latlng: [47.33333333, 13.33333333],
+//   region: country.country,
+// }));
+
+
+
 
 //  const formattedCities = j.map((country) => ({
 //   value: country.name,
@@ -68,7 +86,7 @@ const useCountries = () => {
   const getAll = () => formattedCities;
 
   const getByValue = (value: string) => {
-    return formattedCities.find((item) => item.value === value) || "";
+    return formattedCities.find((item) => item.value === value);
   }
 
   return {

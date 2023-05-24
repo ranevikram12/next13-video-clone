@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 import useCountries from '@/app/hooks/useCountries';
 import useCities from '@/app/hooks/useCities'
-//import {CITY_LIST} from '../../constant/cities_list' 
+import {CITY_LIST} from '../../constant/cities_list' 
 
 export type CountrySelectValue = {
   flag: string;
@@ -14,6 +14,8 @@ export type CountrySelectValue = {
   value: string
 }
 
+
+//console.log(CITY_LIST)
 
 
 interface CountrySelectProps {
@@ -27,7 +29,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
 }) => {
 
   const { getAll } = useCountries();
-//  const { getByValue } = useCities();
+ // const { getAll } = useCities();
 
 //  c_city_list.map
   return ( 
