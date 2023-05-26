@@ -46,7 +46,9 @@ const RentModal = () => {
   const [step, setStep] = useState(STEPS.CATEGORY);
 
 
-  //console.log(citiesJ)
+
+
+ 
 
   const { 
     register, 
@@ -83,6 +85,9 @@ const RentModal = () => {
   const bathroomCount = watch('bathroomCount');
   const imageSrc = watch('imageSrc');
 
+
+  const imageSrcArray = watch('imageSrc');
+
   const imageArray: string[] = watch('imageArray');
 
   const imageID = watch('imageID');
@@ -90,8 +95,7 @@ const RentModal = () => {
 
  
 
-
-
+  
 
   const Map = useMemo(() => dynamic(() => import('../Map'), { 
     ssr: false 
@@ -104,6 +108,20 @@ const RentModal = () => {
       shouldTouch: true,
       shouldValidate: true
     })
+  }
+
+  useEffect(() => {
+    console.log(imageArray);
+  }, [imageArray]);
+
+
+  const setImageArry = (val: string) => {
+
+    imageArray.push(val)
+    console.log(imageArray)
+
+    setCustomValue('imageArray', imageArray)
+
   }
 
   const onBack = () => {
@@ -239,10 +257,12 @@ const RentModal = () => {
           subtitle="Show guests what your place looks like!"
         />
         <ImageUploadMulti
-          //onChange={(value) => setCustomValue('imageSrc', value)}
-          onChange={(value) => setCustomValue('imageArray', value)}
+        
+        
+        //  onChange={(value) => setCustomValue('imageArray', value)}
+          onChange={(value) => setImageArry(value)}
           
-          value={imageArray}
+          value={imageSrcArray}
         />
       </div>
     )

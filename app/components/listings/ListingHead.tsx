@@ -41,40 +41,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
 
 
 
-    {/* <div className="
-        w-full
-        h-[60vh]
-        overflow-hidden 
-        rounded-xl
-        relative
-      "
-    >
-      
-      
-    
-
-
-<Image
-        src={imageArray[0]}
-        fill
-        className="object-cover w-full"
-        alt="Image"
-      />
-
-      <div
-        className="
-          absolute
-          top-5
-          right-5
-        "
-      >
-        <HeartButton 
-          listingId={id}
-          currentUser={currentUser}
-        />
-      </div>
-    </div>
- */}
+   
 
 
 <div className=" w-full
@@ -82,13 +49,13 @@ const ListingHead: React.FC<ListingHeadProps> = ({
         overflow-hidden 
         rounded-xl
         relative ">
-  <div className="-m-1 flex flex-wrap md:-m-2 w-full h-[60vh]">
+  {/* <div className="-m-1 flex flex-row md:-m-2 w-full h-[60vh]">
     <div className="flex w-1/2 flex-wrap">
 
     <div className="w-full p-1 md:p-2">
         <img
           alt="gallery"
-          className="block h-full w-full rounded-lg object-cover object-center"
+          className="block h-full w-full   object-center"
           src={imageArray[0]} />
       </div>
 
@@ -97,34 +64,140 @@ const ListingHead: React.FC<ListingHeadProps> = ({
       
     
     </div>
-    <div className="flex w-1/2 flex-col">
+    <div className="flex w-1/2 flex-col ">
      
-      <div className="w-1/2 p-1 md:p-2 flex-1">
-        <img
-          alt="gallery"
-          className="block h-full w-full rounded-lg object-cover object-center"
-          src={imageArray[1]} />
-      </div>
+    {imageArray[1] && (
+              
+              
+              <div className=" p-1 md:p-2 flex-1">
+              <img
+                alt="gallery"
+                className="block w-full   object-center"
+                src={imageArray[1]} />
+            </div>
+              
+
+            )}
 
       {imageArray[2] && (
               
               
-              <div className="w-1/2 p-1 md:p-2 flex-1">
+              <div className=" p-1 md:p-2 flex-1 w-200 h-200">
               <img
                 alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
+                className="block    object-cover  object-center"
                 src={imageArray[2]} />
             </div>
               
 
             )}
 
+    </div>
 
-      
-    
 
+    <div className="flex w-1/2 flex-col">
+     
+    {imageArray[3] && (
+              
+              
+              <div className="w-full p-1 md:p-2 flex-1">
+              <img
+                alt="gallery"
+                className="block h-full w-full   object-center"
+                src={imageArray[3]} />
+            </div>
+              
+
+            )}
+
+      {imageArray[4] && (
+              
+              
+              <div className="w-full p-1 md:p-2 flex-1">
+              <img
+                alt="gallery"
+                className="block h-full w-full   object-center"
+                src={imageArray[4]} />
+            </div>
+              
+
+            )}
 
     </div>
+
+
+
+
+
+
+  </div> */}
+
+  <div className="grid grid-cols-3 gap-2">
+
+
+  
+        <img
+          alt="gallery"
+          className="   row-span-2 object-center h-[60vh]"
+          src={imageArray[0]} />
+  
+
+
+      {imageArray[1] && (
+              
+              
+             
+              <img
+                alt="gallery"
+                className="block object-center  h-[30vh] "
+                src={imageArray[1]} />
+            
+              
+
+            )}
+
+      {imageArray[2] && (
+              
+              
+             
+              <img
+                alt="gallery"
+                className="block      object-center  h-[30vh]"
+                src={imageArray[2]} />
+           
+              
+
+            )}
+
+
+{imageArray[3] && (
+              
+              
+              
+              <img
+                alt="gallery"
+                className="block      object-center h-[30vh]"
+                src={imageArray[3]} />
+            
+              
+
+            )}
+
+
+{imageArray[4] && (
+              
+              
+             
+              <img
+                alt="gallery"
+                className="block      object-center h-[30vh]"
+                src={imageArray[4]} />
+            
+              
+
+            )}
+
+
   </div>
 
 

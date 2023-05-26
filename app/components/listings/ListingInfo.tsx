@@ -105,52 +105,6 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
      
 
 
-      {/* <div 
-          className="
-            text-xl 
-            font-semibold 
-            flex 
-            flex-row 
-            
-            gap-2
-          "
-        >
-      <div>
-
-      <div className="
-      text-lg font-light text-neutral-500">
-        ID
-      </div>
-
-      <Image
-          src={imageID}
-          width={600}
-          height={200}
-         
-          alt="Image"
-        />
-
-      </div>
-
-
-      <div>
-
-      <div className="
-      text-lg font-light text-neutral-500">
-        License
-      </div>
-
-      <Image
-          src={imageLicense}
-          width={600}
-          height={200}
-         
-          alt="Image"
-        />
-
-      </div>
-
-</div> */}
 
 
     </div>

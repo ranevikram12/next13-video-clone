@@ -15,8 +15,8 @@ const uploadPreset = "s7bwndkb";
 
 
 interface ImageUploadProps {
-  onChange: (value: string[]) => void;
-  value: string[];
+  onChange: (value: string) => void;
+  value: string;
 }
 
 
@@ -34,33 +34,34 @@ const ImageUploadMulti: React.FC<ImageUploadProps> = ({
   const [imgArray, setImgArray] = useState<string[]>([]);
 
 
-  useEffect(() => {
-    console.log(imgArray);
-  }, [imgArray]);
-
+ 
 
   const handleUpload = useCallback((result: any) => {
     console.log("result url", result.info.secure_url)
     setImgArray([...imgArray, result.info.secure_url ])
    
-    //setImgArray([ result.info.secure_url ])
+  
     console.log("Img array", imgArray)
 
-   // value.push[result.info.secure_url]
-   
-   
-   // onChange(result.info.secure_url);
+  
  
-    onChange(imgArray);
+    //onChange(imgArray);
+    onChange(result.info.secure_url);
  
   }, [onChange]);
+
+
+  useEffect(() => {
+    console.log(imgArray);
+  }, [imgArray, handleUpload]);
+
 
   return (
     <CldUploadWidget 
       onUpload={handleUpload} 
       uploadPreset={uploadPreset}
       options={{
-        maxFiles: 4
+        maxFiles: 5
       }}
     >
       {({ open }) => {
