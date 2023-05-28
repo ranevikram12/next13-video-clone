@@ -61,6 +61,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+  const [reservationTime, setReservationTime] = useState("");
 
   const onCreateReservation = useCallback(() => {
       if (!currentUser) {
@@ -72,7 +73,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
         totalPrice,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
-        listingId: listing?.id
+        listingId: listing?.id,
+        reservationTime: reservationTime
       })
       .then(() => {
         toast.success('Listing reserved!');
@@ -89,6 +91,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
   [
     totalPrice, 
     dateRange, 
+    reservationTime,
     listing?.id,
     router,
     currentUser,
@@ -108,7 +111,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
         setTotalPrice(listing.price);
       }
     }
-  }, [dateRange, listing.price]);
+
+    console.log("from Clientclass"+ reservationTime);
+  }, [dateRange, listing.price, reservationTime]);
 
   return ( 
     <Container>
@@ -161,6 +166,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
                 dateRange={dateRange}
+                setReservationTime={setReservationTime}
                 onSubmit={onCreateReservation}
                 disabled={isLoading}
                 disabledDates={disabledDates}

@@ -12,6 +12,7 @@ export type SafeReservation = Omit<
   startDate: string;
   endDate: string;
   listing: SafeListing;
+  reservationTime: string;
 };
 
 export type SafeUser = Omit<

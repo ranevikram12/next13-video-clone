@@ -9,7 +9,6 @@ import { SafeUser } from "@/app/types";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 
-import Image from "next/image";
 
 
 const Map = dynamic(() => import('../Map'), { 

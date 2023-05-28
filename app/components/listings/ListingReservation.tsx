@@ -1,6 +1,8 @@
 'use client';
 
 import { Range } from "react-date-range";
+import {useState, useEffect} from 'react';
+
 
 import Button from "../Button";
 import Calendar from "../inputs/Calendar";
@@ -8,6 +10,7 @@ import Calendar from "../inputs/Calendar";
 interface ListingReservationProps {
   price: number;
   dateRange: Range,
+  setReservationTime: (value: string) => void,
   totalPrice: number;
   onChangeDate: (value: Range) => void;
   onSubmit: () => void;
@@ -20,12 +23,65 @@ const ListingReservation: React.FC<
 > = ({
   price,
   dateRange,
+  setReservationTime,
   totalPrice,
   onChangeDate,
   onSubmit,
   disabled,
   disabledDates
 }) => {
+
+
+  const [hours, setHours] = useState("1");
+  const [mintues, setMin] = useState("00");
+  const [amPm, setAmPm] = useState("AM");
+
+  const [time, setTime] = useState("");
+
+  
+
+  
+
+  const _handleChangeHours = (event: any) => {
+  
+
+    setHours(event.target.value);
+
+    setTime(event.target.value+":"+mintues+" "+ amPm);
+
+  
+  }
+
+
+
+  const _handleChangeMin = (event: any) => {
+   
+ 
+     setMin(event.target.value);
+ 
+     setTime(hours+":"+event.target.value+" "+ amPm);
+ 
+    
+   }
+
+
+   const _handleChangeAmPm = (event: any) => {
+  
+ 
+     setAmPm(event.target.value);
+ 
+     setTime(hours+":"+mintues+" "+ event.target.value);
+ 
+   
+   }
+
+
+  useEffect(() => {
+    console.log(time);
+    setReservationTime(time);
+  }, [time, hours, amPm, mintues]);
+
+
   return ( 
     <div 
       className="
@@ -57,7 +113,7 @@ const ListingReservation: React.FC<
 
       <div className="mt-2 ml-3 p-5 w-40 bg-white rounded-lg shadow-xl">
   <div className="flex">
-    <select name="hours" className="bg-transparent text-xl appearance-none outline-none">
+    <select name="hours" className="bg-transparent text-xl appearance-none outline-none" onChange={(option) => _handleChangeHours(option)}>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -68,11 +124,11 @@ const ListingReservation: React.FC<
       <option value="8">8</option>
       <option value="9">9</option>
       <option value="10">10</option>
-      <option value="11">10</option>
+      <option value="11">11</option>
       <option value="12">12</option>
     </select>
     <span className="text-xl mr-3 ">:</span>
-    <select name="minutes" className="bg-transparent text-xl appearance-none outline-none mr-4">
+    <select name="minutes" className="bg-transparent text-xl appearance-none outline-none mr-4" onChange={(option) => _handleChangeMin(option)}>
       <option value="0">00</option>
       <option value="10">10</option>
       <option value="20">20</option>
@@ -82,9 +138,9 @@ const ListingReservation: React.FC<
 
      
     </select>
-    <select name="ampm" className="bg-transparent text-xl appearance-none outline-none">
-      <option value="am">AM</option>
-      <option value="pm">PM</option>
+    <select name="ampm" className="bg-transparent text-xl appearance-none outline-none" onChange={(option) => _handleChangeAmPm(option)}>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
     </select>
   </div>
 </div>
@@ -94,7 +150,8 @@ const ListingReservation: React.FC<
         <Button 
           disabled={disabled} 
           label="Reserve" 
-          onClick={onSubmit}
+           onClick={onSubmit}
+        //  onClick={HandelChange}
         />
       </div>
       <hr />

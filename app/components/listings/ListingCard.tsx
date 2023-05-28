@@ -66,6 +66,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   
     const start = new Date(reservation.startDate);
     const end = new Date(reservation.endDate);
+    const reservationTime = reservation.reservationTime;
 
     return `${format(start, 'PP')} - ${format(end, 'PP')}`;
   }, [reservation]);
@@ -114,6 +115,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
         <div className="font-light text-neutral-500">
           {reservationDate || data.category}
         </div>
+
+        <div className="font-light text-neutral-500">
+          {reservation?.reservationTime}
+        </div>
+
+
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">
             $ {price}

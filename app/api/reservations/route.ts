@@ -17,7 +17,8 @@ export async function POST(
     listingId,
     startDate,
     endDate,
-    totalPrice
+    totalPrice,
+    reservationTime
    } = body;
 
    if (!listingId || !startDate || !endDate || !totalPrice) {
@@ -35,6 +36,7 @@ export async function POST(
           startDate,
           endDate,
           totalPrice,
+          reservationTime
         }
       }
     }
